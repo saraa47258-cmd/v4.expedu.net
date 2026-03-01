@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: expedu_app
+    ports:
+      - "${WEB_PORT}:80"
+    environment:
+      DB_HOST: "db"
+      DB_NAME: "${DB_NAME}"
+      DB_USER: "${DB_USER}"
+      DB_PASS: "${DB_PASS}"
+      DB_CHARSET: "utf8mb4"
+      APP_BASE_URL: "${APP_BASE_URL}"
+      APP_ENV: "production"
+      APP_DEBUG: "false"
+      WASABI_KEY: "${WASABI_KEY}"
+      WASABI_SECRET: "${WASABI_SECRET}"
+      WASABI_REGION: "${WASABI_REGION}"
+      WASABI_BUCKET: "${WASABI_BUCKET}"
+      WASABI_ENDPOINT: "${WASABI_ENDPOINT}"
+    depends_on:
+      - db
+    volumes:
+      - uploads-data:/var/www/html/public/uploads
+
+  db:
+    image: mysql:8.0
+    container_name: expedu_db
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PASS}"
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: expedu_pma
+    ports:
+      - "${PMA_PORT}:80"
+    environment:
+      PMA_HOST: "db"
+      PMA_USER: "${DB_USER}"
+      PMA_PASSWORD: "${DB_PASS}"
+      UPLOAD_LIMIT: 1G
+    depends_on:
+      - db
+
+volumes:
+  db-data:
+  uploads-data:

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل المسارات الكامل - ExpEdu</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .icon {
+            font-size: 2.5rem;
+        }
+        
+        .path-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .path-card:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .path-title {
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .path-url {
+            background: #2d3748;
+            color: #a0f0ed;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin: 15px 0;
+            word-break: break-all;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .path-url:hover {
+            background: #1a202c;
+            transform: scale(1.02);
+        }
+        
+        .path-desc {
+            color: #4a5568;
+            margin: 10px 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .badge-admin {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .badge-instructor {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .badge-student {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .badge-public {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        
+        .btn-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+        
+        .flow-chart {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .flow-step {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 700;
+        }
+        
+        tr:hover {
+            background: #f7fafc;
+        }
+        
+        .check {
+            color: #48bb78;
+            font-size: 1.5rem;
+        }
+        
+        .cross {
+            color: #f56565;
+            font-size: 1.5rem;
+        }
+        
+        .sql-code {
+            background: #2d3748;
+            color: #a0f0ed;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 دليل المسارات الكامل</h1>
+        <p class="subtitle">ExpEdu Platform - نظام إدارة التعلم الإلكتروني</p>
+        
+        <!-- Admin Section -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon">👑</span>
+                مسارات الأدمن والمشرفين
+            </h2>
+            
+            <div class="path-card">
+                <div class="path-title">1️⃣ إضافة أدمن أو مشرف</div>
+                <span class="badge badge-admin">أدمن فقط</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/admin/register.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> إنشاء حساب جديد بصلاحيات أدمن أو مشرف<br>
+                    <strong>الحماية:</strong> محمي بـ require_admin() بعد أول تسجيل<br>
+                    <strong>الحقول:</strong> الاسم، البريد، الهاتف، كلمة المرور، الدور (أدمن/مشرف)<br>
+                    <strong>بعد التسجيل:</strong> يوجه إلى admin/dashboard.php
+                </div>
+                <a href="http://localhost/admin/register.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">2️⃣ تسجيل الدخول</div>
+                <span class="badge badge-admin">أدمن</span>
+                <span class="badge badge-instructor">مشرف</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/user_login.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> تسجيل دخول موحد لجميع الأدوار<br>
+                    <strong>الحماية:</strong> لا يوجد (صفحة عامة)<br>
+                    <strong>التوجيه:</strong> أدمن/مشرف → admin/dashboard.php | طالب → user_dashboard.php
+                </div>
+                <a href="http://localhost/public/user_login.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">3️⃣ لوحة تحكم الأدمن</div>
+                <span class="badge badge-admin">أدمن فقط</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/admin/dashboard.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> لوحة تحكم شاملة بإحصائيات وإدارة كاملة<br>
+                    <strong>الحماية:</strong> require_admin()<br>
+                    <strong>المحتوى:</strong> إحصائيات، مستخدمين، كورسات، إجراءات سريعة
+                </div>
+                <a href="http://localhost/admin/dashboard.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="flow-chart">
+                <h3 style="color: #2d3748; margin-bottom: 20px;">📊 تدفق الأدمن:</h3>
+                <div class="flow-step">
+                    1. زيارة: admin/register.php
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    2. إدخال البيانات + اختيار الدور
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    3. حفظ في قاعدة البيانات (role = 'admin' أو 'instructor')
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    4. توجيه إلى: admin/dashboard.php
+                </div>
+            </div>
+        </div>
+        
+        <!-- Student Section -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon">📖</span>
+                مسارات الطلاب
+            </h2>
+            
+            <div class="path-card">
+                <div class="path-title">1️⃣ التسجيل (للطلاب)</div>
+                <span class="badge badge-public">متاح للجميع</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/user_register.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> إنشاء حساب طالب جديد<br>
+                    <strong>الحماية:</strong> لا يوجد (صفحة عامة)<br>
+                    <strong>الدور:</strong> يتم تعيينه تلقائياً كـ 'student'<br>
+                    <strong>بعد التسجيل:</strong> تسجيل دخول تلقائي → user_dashboard.php
+                </div>
+                <a href="http://localhost/public/user_register.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">2️⃣ تسجيل الدخول</div>
+                <span class="badge badge-public">متاح للجميع</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/user_login.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> تسجيل دخول موحد<br>
+                    <strong>التوجيه الذكي:</strong> حسب role في قاعدة البيانات
+                </div>
+                <a href="http://localhost/public/user_login.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">3️⃣ لوحة تحكم الطالب</div>
+                <span class="badge badge-student">طلاب فقط</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/user_dashboard.php
+                </div>
+                <div class="path-desc">
+                    <strong>الوظيفة:</strong> لوحة تحكم بسيطة للطالب<br>
+                    <strong>الحماية:</strong> require_login()<br>
+                    <strong>المحتوى:</strong> ترحيب، إحصائيات، أحدث الكورسات، إجراءات سريعة
+                </div>
+                <a href="http://localhost/public/user_dashboard.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="flow-chart">
+                <h3 style="color: #2d3748; margin-bottom: 20px;">📊 تدفق الطالب:</h3>
+                <div class="flow-step">
+                    1. زيارة: user_register.php
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    2. إدخال البيانات (تلقائياً role = 'student')
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    3. حفظ في قاعدة البيانات + تسجيل دخول تلقائي
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-step">
+                    4. توجيه إلى: user_dashboard.php?welcome=1
+                </div>
+            </div>
+        </div>
+        
+        <!-- Public Pages -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon">🌐</span>
+                الصفحات العامة
+            </h2>
+            
+            <div class="path-card">
+                <div class="path-title">الصفحة الرئيسية</div>
+                <span class="badge badge-public">متاح للجميع</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/index.php
+                </div>
+                <a href="http://localhost/public/index.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">عرض جميع الكورسات</div>
+                <span class="badge badge-public">متاح للجميع</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/courses.php
+                </div>
+                <a href="http://localhost/public/courses.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+            
+            <div class="path-card">
+                <div class="path-title">تسجيل الخروج</div>
+                <span class="badge badge-public">متاح للجميع</span>
+                <div class="path-url" onclick="copyToClipboard(this)">
+                    http://localhost/public/logout.php
+                </div>
+                <a href="http://localhost/public/logout.php" target="_blank" class="btn-link">
+                    🔗 افتح الصفحة
+                </a>
+            </div>
+        </div>
+        
+        <!-- Permissions Table -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon">🔒</span>
+                جدول الصلاحيات
+            </h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>الصفحة</th>
+                        <th>أدمن 👑</th>
+                        <th>مشرف 📚</th>
+                        <th>طالب 📖</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>admin/dashboard.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="cross">❌</span></td>
+                        <td><span class="cross">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>admin/users.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="cross">❌</span></td>
+                        <td><span class="cross">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>admin/ads.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="cross">❌</span></td>
+                        <td><span class="cross">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>admin/courses.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="cross">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>admin/upload.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="cross">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>user_dashboard.php</strong></td>
+                        <td><span class="cross">❌</span></td>
+                        <td><span class="cross">❌</span></td>
+                        <td><span class="check">✅</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>public/courses.php</strong></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="check">✅</span></td>
+                        <td><span class="check">✅</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Quick Start -->
+        <div class="section">
+            <h2 class="section-title">
+                <span class="icon">🚀</span>
+                البدء السريع
+            </h2>
+            
+            <h3 style="color: #2d3748; margin: 30px 0 20px;">1️⃣ إنشاء أول أدمن (SQL):</h3>
+            <div class="sql-code">USE expedu;
+
+INSERT INTO users (name, email, password_hash, role, created_at) 
+VALUES (
+    'Admin', 
+    'admin@site.com', 
+    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+    'admin',
+    NOW()
+);
+
+-- البيانات:
+-- البريد: admin@site.com
+-- كلمة المرور: password</div>
+            
+            <h3 style="color: #2d3748; margin: 30px 0 20px;">2️⃣ تسجيل الدخول:</h3>
+            <div class="path-desc">
+                1. افتح: <a href="http://localhost/public/user_login.php" target="_blank" style="color: #667eea;">http://localhost/public/user_login.php</a><br>
+                2. البريد: <strong>admin@site.com</strong><br>
+                3. كلمة المرور: <strong>password</strong><br>
+                4. سيتم توجيهك إلى: <strong>admin/dashboard.php</strong>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(element) {
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = element.style.background;
+                element.style.background = '#48bb78';
+                element.textContent = '✅ تم النسخ!';
+                setTimeout(() => {
+                    element.style.background = original;
+                    element.textContent = text;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+

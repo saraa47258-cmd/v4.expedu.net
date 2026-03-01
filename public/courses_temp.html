@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#E74C60">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="<?php echo gmdate('D, d M Y H:i:s') . ' GMT'; ?>">
+    <title>مواهب خبرة - منصة التعلم الإلكتروني</title>
+    
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts - Bahij Janna -->
+    <link href="https://fonts.googleapis.com/css2?family=Bahij+Janna:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/responsive-enhancements.css?v=<?php echo time(); ?>" rel="stylesheet">
+    
+    <!-- Talents Page Specific CSS -->
+    <style>
+        /* Talents Page Specific Styles */
+        .talents-hero {
+            background: linear-gradient(135deg, #E74C60 0%, #EE6676 50%, #066755 100%);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .talents-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #e9ecef;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(231, 76, 96, 0.2);
+        }
+        
+        .course-thumbnail {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(231, 76, 96, 0.1), rgba(6, 103, 85, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .course-card:hover .course-thumbnail::after {
+            opacity: 1;
+        }
+        
+        .course-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .course-content {
+            padding: 20px;
+        }
+        
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            height: 2.8rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .course-instructor {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .course-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-left: 5px;
+        }
+        
+        .rating-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+        
+        .course-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .price-current {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .price-original {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        
+        .course-stats {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .enroll-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #E74C60 0%, #EE6676 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .enroll-btn:hover {
+            background: linear-gradient(90deg, #D63E52 0%, #E85A6B 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(231, 76, 96, 0.3);
+        }
+        
+        .category-tabs {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+        }
+        
+        .category-tab {
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 0 5px;
+            border: 2px solid transparent;
+            background: #f8f9fa;
+            color: #666;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab:hover,
+        .category-tab.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .search-section {
+            background: white;
+            padding: 30px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(231, 76, 96, 0.1);
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: #D63E52;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .featured-section {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .stats-section {
+            background: white;
+            padding: 40px 0;
+        }
+        
+        .stat-item-large {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .course-thumbnail {
+                height: 180px;
+            }
+            
+            .course-content {
+                padding: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .category-tab {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                margin: 0 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="icons/logo.png" alt="شعار بوابة خبرة " class="me-2 navbar-logo">
+                <span class="navbar-brand-text">بوابة خبرة </span>
+            </a>
+            
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link enhanced-nav-link" href="index.html#home" data-bs-toggle="tooltip" title="الصفحة الرئيسية">
+                            <i class="fas fa-home me-2"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enhanced-nav-link" href="index.html#about" data-bs-toggle="tooltip" title="تعرف على منظمة خبرة ">
+                            <i class="fas fa-users me-2"></i>
+                            من نحن
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link enhanced-nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" data-bs-toggle="tooltip" title="خدماتنا وكروساتنا">
+                            <i class="fas fa-graduation-cap me-2"></i>
+                            خدماتنا
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html#services">
+                                <i class="fas fa-cogs me-2"></i>خدماتنا 
+                            </a></li>
+                            <li><a class="dropdown-item active" href="talents.html">
+                                <i class="fas fa-arrow-left me-2"></i>كروسات خبرة
+                            </a></li>
+                            <li><a class="dropdown-item" href="talents-experience.html">
+                                <i class="fas fa-star me-2"></i>مواهب خبرة
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link enhanced-nav-link" href="index.html#contact" data-bs-toggle="tooltip" title="تواصل معنا للحصول على استشارة">
+                            <i class="fas fa-envelope me-2"></i>
+                            تواصل معنا
+                        </a>
+                    </li>
+                </ul>
+                <button class="btn navbar-cta-btn enhanced-cta-btn" data-bs-toggle="tooltip" title="ابدأ رحلتك  معنا">
+                    <i class="fas fa-rocket me-2"></i>
+                    قدم طلبك
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="talents-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="text-white">
+                        <h1 class="display-4 fw-bold mb-4">مواهب خبرة</h1>
+                        <h2 class="h3 mb-4">منصة التعلم الإلكتروني الرائدة</h2>
+                        <p class="lead mb-4">
+                            اكتشف آلاف الدورات  المتخصصة من أفضل الخبراء الأكاديميين العمانيين. 
+                            تعلم في أي وقت ومن أي مكان مع شهادات معتمدة.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <button class="btn btn-light btn-lg px-4 py-3">
+                                <i class="fas fa-play me-2"></i>
+                                ابدأ التعلم الآن
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4 py-3">
+                                <i class="fas fa-eye me-2"></i>
+                                تصفح الدورات
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <div class="position-relative">
+                            <div class="bg-white bg-opacity-10 rounded-4 p-5 backdrop-blur">
+                                <i class="fas fa-laptop-code text-white" style="font-size: 8rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="ابحث عن الدورات، المدرسين، أو المواضيع...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="category-tabs">
+        <div class="container">
+            <div class="d-flex justify-content-center flex-wrap">
+                <a href="#" class="category-tab active">جميع الدورات</a>
+                <a href="#" class="category-tab">البرمجة والتقنية</a>
+                <a href="#" class="category-tab">الأعمال والإدارة</a>
+                <a href="#" class="category-tab">اللغات</a>
+                <a href="#" class="category-tab">التصميم</a>
+                <a href="#" class="category-tab">العلوم</a>
+                <a href="#" class="category-tab">التطوير الشخصي</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item-large">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">دورة </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item-large">
+                        <span class="stat-number">10K+</span>
+                        <div class="stat-label">طالب نشط</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item-large">
+                        <span class="stat-number">150+</span>
+                        <div class="stat-label">خبير معلم</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item-large">
+                        <span class="stat-number">98%</span>
+                        <div class="stat-label">نسبة الرضا</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>الدورات المميزة</h2>
+                <p>اكتشف أفضل الدورات  المختارة بعناية من قبل خبرائنا</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Course 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-card">
+                        <div class="course-thumbnail" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <div class="course-badge">جديد</div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-white">
+                                <i class="fas fa-code" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">تعلم البرمجة من الصفر إلى الاحتراف</h5>
+                            <div class="course-instructor">
+                                <i class="fas fa-user me-1"></i>
+                                د. أحمد المعمري
+                            </div>
+                            <div class="course-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.9 (1,234)</span>
+                            </div>
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>40 ساعة</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>2,450 طالب</span>
+                                </div>
+                            </div>
+                            <div class="course-price">
+                                <span class="price-current">299 ر.ع</span>
+                                <span class="price-original">599 ر.ع</span>
+                            </div>
+                            <a href="course-detail.html?course=programming-basics" class="enroll-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                سجل الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-card">
+                        <div class="course-thumbnail" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <div class="course-badge">الأكثر شعبية</div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-white">
+                                <i class="fas fa-palette" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">التصميم الجرافيكي والإبداع الرقمي</h5>
+                            <div class="course-instructor">
+                                <i class="fas fa-user me-1"></i>
+                                أ. فاطمة الزهراء
+                            </div>
+                            <div class="course-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.8 (987)</span>
+                            </div>
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>32 ساعة</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>1,890 طالب</span>
+                                </div>
+                            </div>
+                            <div class="course-price">
+                                <span class="price-current">249 ر.ع</span>
+                                <span class="price-original">499 ر.ع</span>
+                            </div>
+                            <a href="course-detail.html?course=graphic-design" class="enroll-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                سجل الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-card">
+                        <div class="course-thumbnail" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <div class="course-badge">محدود</div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-white">
+                                <i class="fas fa-chart-line" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">إدارة الأعمال والقيادة الاستراتيجية</h5>
+                            <div class="course-instructor">
+                                <i class="fas fa-user me-1"></i>
+                                د. محمد الشنفري
+                            </div>
+                            <div class="course-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.9 (756)</span>
+                            </div>
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>48 ساعة</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>1,234 طالب</span>
+                                </div>
+                            </div>
+                            <div class="course-price">
+                                <span class="price-current">399 ر.ع</span>
+                                <span class="price-original">799 ر.ع</span>
+                            </div>
+                            <a href="course-detail.html?course=business-management" class="enroll-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                سجل الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="course-card">
+                        <div class="course-thumbnail" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <div class="course-badge">مميز</div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-white">
+                                <i class="fas fa-language" style="font-size: 3rem;"></i>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <h5 class="course-title">تعلم اللغة الإنجليزية للمحترفين</h5>
+                            <div class="course-instructor">
+                                <i class="fas fa-user me-1"></i>
+                                أ. سارة البلوشية
+                            </div>
+                            <div class="course-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-text">4.7 (1,456)</span>
+                            </div>
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>36 ساعة</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>3,210 طالب</span>
+                                </div>
+                            </div>
+                            <div class="course-price">
+                                <span class="price-current">199 ر.ع</span>
+                                <span class="price-original">399 ر.ع</span>
+                            </div>
+                            <a href="course-detail.html?course=english-professional" class="enroll-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                سجل الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="py-5">
+                <div class="row g-4">
+                    <!-- Company Info -->
+                    <div class="col-lg-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-graduation-cap fs-3 text-accent me-2"></i>
+                            <span class="h5 fw-bold mb-0">بوابة خبرة </span>
+                        </div>
+                        <p class="text-white-50 mb-4">
+                            مؤسسة  عمانية رائدة تقدم خدمات  وتوجيهية متميزة للطلاب والخريجين والعاملين 
+                            من خلال فريق من الخبراء الأكاديميين المتخصصين.
+                        </p>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-phone text-accent me-2"></i>
+                                <span>+968 9899 2443</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-envelope text-accent me-2"></i>
+                                <span>info@expedu.net</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-accent me-2"></i>
+                                <span>سلطنة عمان</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="fw-bold mb-3">روابط سريعة</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html#home" class="text-white-50 text-decoration-none">الرئيسية</a></li>
+                            <li class="mb-2"><a href="index.html#about" class="text-white-50 text-decoration-none">من نحن</a></li>
+                            <li class="mb-2"><a href="index.html#services" class="text-white-50 text-decoration-none">خدماتنا</a></li>
+                            <li class="mb-2"><a href="index.html#team" class="text-white-50 text-decoration-none">فريقنا</a></li>
+                            <li class="mb-2"><a href="index.html#contact" class="text-white-50 text-decoration-none">تواصل معنا</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="col-lg-3 col-md-6">
+                        <h6 class="fw-bold mb-3">خدماتنا</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="text-white-50">الدروس الأكاديمية</span></li>
+                            <li class="mb-2"><span class="text-white-50">الإرشاد المهني</span></li>
+                            <li class="mb-2"><span class="text-white-50">تطوير المهارات</span></li>
+                            <li class="mb-2"><span class="text-white-50">التعلم عبر الإنترنت</span></li>
+                            <li class="mb-2"><span class="text-white-50">كتابة البحوث</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="col-lg-3">
+                        <h6 class="fw-bold mb-3">تابعنا</h6>
+                        <p class="text-white-50 mb-3">ابق على اطلاع بآخر الأخبار والفعاليات </p>
+                        
+                        <!-- Social Links -->
+                        <div class="d-flex gap-3 mb-4">
+                            <a href="https://instagram.com/exp_edu_" class="text-white-50" title="انستقرام">
+                                <img src="icons/انستقرام.png" alt="انستقرام" style="width: 24px; height: 24px;">
+                            </a>
+                            <a href="https://linkedin.com/company/exp-edu" class="text-white-50" title="لينكدين">
+                                <img src="icons/لينكدين.png" alt="لينكدين" style="width: 24px; height: 24px;">
+                            </a>
+                            <a href="https://youtube.com/@exp_edu" class="text-white-50" title="يوتيوب">
+                                <img src="icons/يوتيوب.png" alt="يوتيوب" style="width: 24px; height: 24px;">
+                            </a>
+                            <a href="https://x.com/exp_edu_" class="text-white-50" title="اكس">
+                                <img src="icons/اكس.png" alt="اكس" style="width: 24px; height: 24px;">
+                            </a>
+                            <a href="https://expedu.net" class="text-white-50" title="الموقع الرسمي">
+                                <img src="icons/ويبسايت.png" alt="الموقع" style="width: 24px; height: 24px;">
+                            </a>
+                        </div>
+
+                        <!-- WhatsApp CTA -->
+                        <div class="bg-white bg-opacity-10 p-3 rounded-3">
+                            <h6 class="fw-semibold mb-2">تواصل سريع</h6>
+                            <p class="small text-white-50 mb-2">للاستفسارات العاجلة تواصل معنا</p>
+                            <a href="https://wa.me/96892332749" class="btn btn-accent btn-sm">
+                                <img src="icons/واتساب.png" alt="واتساب" style="width: 16px; height: 16px;" class="me-1">
+                                واتساب
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-top border-white border-opacity-25 py-4">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="text-center text-md-start mb-3 mb-md-0">
+                        <p class="text-white-50 mb-0">© 2024 بوابة خبرة . جميع الحقوق محفوظة.</p>
+                    </div>
+                    
+                    <div class="d-flex gap-4">
+                        <a href="#" class="text-white-50 text-decoration-none small">سياسة الخصوصية</a>
+                        <a href="#" class="text-white-50 text-decoration-none small">شروط الاستخدام</a>
+                        <a href="#" class="text-white-50 text-decoration-none small">اتفاقية الخدمة</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Category tabs functionality
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Search functionality
+            document.querySelector('.search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const searchTerm = this.value;
+                    alert('البحث عن: ' + searchTerm);
+                }
+            });
+
+            // Course enrollment - only for buttons, not links
+            document.querySelectorAll('.enroll-btn:not([href])').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري التسجيل...';
+                    setTimeout(() => {
+                        alert('تم تسجيلك في الدورة بنجاح!');
+                        this.innerHTML = '<i class="fas fa-check me-2"></i>مسجل';
+                        this.style.background = '#28a745';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

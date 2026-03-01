@@ -1,0 +1,93 @@
+# ===============================================
+# حماية وأمان الموقع - ExpEdu
+# ===============================================
+
+# منع تصفح المجلدات
+Options -Indexes
+
+# تفعيل mod_rewrite
+RewriteEngine On
+
+# إعادة توجيه HTTP إلى HTTPS (إزالة التعليق في الإنتاج)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# منع الوصول للملفات الحساسة
+<FilesMatch "\.(env|php~|bak|config|sql|log|ini|sh|git)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# حماية مجلد includes
+<IfModule mod_rewrite.c>
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# منع تنفيذ PHP في مجلد uploads
+<IfModule mod_rewrite.c>
+    RewriteRule ^uploads/.*\.php$ - [F,L]
+</IfModule>
+
+# Headers أمان
+<IfModule mod_headers.c>
+    # منع اختطاف MIME Type
+    Header set X-Content-Type-Options "nosniff"
+    
+    # منع تحميل الصفحة في iframe
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # تفعيل حماية XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # سياسة الإحالة
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # منع التخمين على أنواع الملفات
+    Header set X-Permitted-Cross-Domain-Policies "none"
+</IfModule>
+
+# ضغط الملفات لتحسين الأداء
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+</IfModule>
+
+# التخزين المؤقت للملفات الثابتة
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-font-woff "access plus 1 month"
+    ExpiresByType application/font-woff2 "access plus 1 month"
+</IfModule>
+
+# الحد من حجم الرفع
+LimitRequestBody 104857600
+
+# منع الوصول لملفات Git
+<IfModule mod_rewrite.c>
+    RewriteRule ^\.git - [F,L]
+</IfModule>
+
+# منع هجمات Hotlinking للصور
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?expedu\.net [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?localhost [NC]
+    # RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,L]
+</IfModule>
+
+# حماية من هجمات SQL Injection الأساسية
+<IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>

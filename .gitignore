@@ -1,0 +1,38 @@
+﻿# Environment files
+.env
+.env.local
+.env.*.local
+env.php
+
+# Vendor dependencies
+/vendor/
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads (keep structure but not files)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Cache
+/cache/
+*.cache
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large binary files
+*.zip
+*.phar

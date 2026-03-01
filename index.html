@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=public/index.php">
+    <title>بوابة خبرة  - جارِ التحميل...</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E74C60 0%, #066755 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .loader {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="loader" style="font-size: 4rem; margin-bottom: 20px;">
+            <i class="fas fa-spinner"></i>
+        </div>
+        <h2>بوابة خبرة </h2>
+        <p>جارِ التحميل...</p>
+        <script>
+            // إذا لم يعمل meta refresh
+            setTimeout(function() {
+                window.location.href = 'public/index.php';
+            }, 100);
+        </script>
+    </div>
+</body>
+</html>

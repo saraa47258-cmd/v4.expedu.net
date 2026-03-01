@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- الصفحة الرئيسية -->
+    <url>
+        <loc>http://localhost/expedu/public/index.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- صفحة من نحن -->
+    <url>
+        <loc>http://localhost/expedu/public/about.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- صفحة فريقنا -->
+    <url>
+        <loc>http://localhost/expedu/public/team.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- صفحة خدماتنا -->
+    <url>
+        <loc>http://localhost/expedu/public/services.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- صفحة انضم إلينا -->
+    <url>
+        <loc>http://localhost/expedu/public/join.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- صفحة الكورسات -->
+    <url>
+        <loc>http://localhost/expedu/public/courses.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- صفحة الأسئلة الشائعة -->
+    <url>
+        <loc>http://localhost/expedu/public/faq.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- صفحة تسجيل الدخول -->
+    <url>
+        <loc>http://localhost/expedu/public/user_login.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- صفحة التسجيل -->
+    <url>
+        <loc>http://localhost/expedu/public/user_register.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- صفحات المجالات -->
+    <url>
+        <loc>http://localhost/expedu/public/services/it.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://localhost/expedu/public/services/chemical.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://localhost/expedu/public/services/construction.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://localhost/expedu/public/services/english.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://localhost/expedu/public/services/design.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://localhost/expedu/public/services/accounting.php</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
+

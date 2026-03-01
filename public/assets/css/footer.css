@@ -1,0 +1,736 @@
+/* ========================================
+   PREMIUM FOOTER STYLES
+   Professional, polished footer design
+   ======================================== */
+
+/* --- Base Footer --- */
+.premium-footer {
+    position: relative;
+    background: linear-gradient(175deg, #022b23 0%, #011a15 60%, #010f0c 100%);
+    overflow: hidden;
+    font-family: 'Cairo', 'Bahij Janna', 'Segoe UI', Tahoma, sans-serif;
+}
+
+.premium-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse at 15% 25%, rgba(6, 103, 85, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 75%, rgba(6, 103, 85, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Wave Decoration --- */
+.footer-wave {
+    position: relative;
+    margin-top: -1px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.footer-wave svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(180deg, #033029 0%, #066755 100%);
+}
+
+/* --- Main Footer Content --- */
+.footer-main {
+    position: relative;
+    padding: 70px 0 50px;
+    z-index: 2;
+}
+
+/* --- Brand Section --- */
+.footer-brand {
+    padding-left: 10px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.brand-logo img {
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover img {
+    transform: scale(1.05);
+}
+
+.brand-text h4 {
+    color: #ffffff !important;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.brand-text span {
+    color: #ffd700 !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.brand-desc {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 0.92rem;
+    line-height: 1.85;
+    margin-bottom: 28px;
+    max-width: 330px;
+}
+
+/* --- Contact Cards --- */
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 13px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    text-decoration: none !important;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 215, 0, 0.25);
+    transform: translateX(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-icon.phone {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.contact-icon.email {
+    background: linear-gradient(135deg, #EA4335, #B31217);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(234, 67, 53, 0.25);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.contact-details .label {
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-details .value {
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Footer Links --- */
+.footer-links {
+    padding: 0 8px;
+}
+
+.links-title {
+    color: #ffffff !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.links-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffd700, transparent);
+    border-radius: 2px;
+}
+
+.links-title i {
+    color: #ffd700 !important;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none !important;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 3px 0;
+}
+
+.footer-links ul li a i {
+    font-size: 0.65rem;
+    opacity: 0;
+    transform: translateX(6px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #ffd700 !important;
+}
+
+.footer-links ul li a:hover {
+    color: #ffffff !important;
+    padding-right: 6px;
+}
+
+.footer-links ul li a:hover i {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- CTA Section --- */
+.footer-cta {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 28px 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: border-color 0.3s ease;
+}
+
+.footer-cta:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cta-title {
+    color: #ffffff !important;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-title i {
+    color: #ffd700 !important;
+    font-size: 0.95rem;
+}
+
+.cta-desc {
+    color: rgba(255, 255, 255, 0.55) !important;
+    font-size: 0.82rem;
+    margin-bottom: 18px;
+}
+
+/* --- WhatsApp Button --- */
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #ffffff !important;
+    padding: 13px 22px;
+    border-radius: 12px;
+    text-decoration: none !important;
+    font-weight: 700;
+    font-size: 0.93rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.whatsapp-btn:hover::before {
+    left: 100%;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    color: #ffffff !important;
+}
+
+.whatsapp-btn i {
+    font-size: 1.25rem;
+}
+
+/* --- Social Icons --- */
+.social-icons {
+    margin-bottom: 18px;
+}
+
+.social-label {
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.78rem;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.icons-row {
+    display: flex;
+    gap: 8px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-size: 1.05rem;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.social-icon:hover::before {
+    opacity: 0.15;
+    background: #fff;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-icon.linkedin {
+    background: linear-gradient(135deg, #0077B5, #005885);
+}
+
+.social-icon.youtube {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+}
+
+.social-icon.twitter {
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+}
+
+.x-social-mark {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+    font-family: Arial, sans-serif;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Newsletter Mini --- */
+.newsletter-mini {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.newsletter-mini > span {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 0.78rem;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 6px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 9px 13px;
+    color: #ffffff;
+    font-size: 0.83rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 0;
+}
+
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.newsletter-form input:focus {
+    border-color: rgba(255, 215, 0, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+}
+
+.newsletter-form button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    border: none;
+    border-radius: 8px;
+    color: #022b23;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-form button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(255, 215, 0, 0.35);
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.35);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 22px 0;
+}
+
+.bottom-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.83rem;
+}
+
+.copyright span {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.copyright .separator {
+    opacity: 0.25;
+}
+
+.bottom-links {
+    display: flex;
+    gap: 22px;
+}
+
+.bottom-links a {
+    color: rgba(255, 255, 255, 0.45) !important;
+    text-decoration: none !important;
+    font-size: 0.83rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.bottom-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.bottom-links a:hover {
+    color: #ffd700 !important;
+}
+
+.bottom-links a:hover::after {
+    width: 100%;
+}
+
+.made-with {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.83rem;
+}
+
+.made-with span {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.made-with i {
+    color: #E74C60 !important;
+    animation: footer-heartbeat 1.5s infinite;
+}
+
+@keyframes footer-heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ========================================
+   RESPONSIVE FOOTER
+   ======================================== */
+
+/* Tablets */
+@media (max-width: 991.98px) {
+    .footer-main {
+        padding: 55px 0 35px;
+    }
+    
+    .footer-brand {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .brand-logo {
+        justify-content: center;
+    }
+    
+    .brand-desc {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact-cards {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    
+    .footer-cta {
+        margin-top: 15px;
+    }
+
+    .links-title::after {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+    .footer-wave svg {
+        height: 50px;
+    }
+    
+    .footer-main {
+        padding: 40px 0 30px;
+    }
+
+    .footer-links {
+        text-align: center;
+        padding: 0;
+    }
+
+    .links-title {
+        justify-content: center;
+    }
+
+    .links-title::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .footer-links ul li a {
+        justify-content: center;
+    }
+
+    .footer-cta {
+        text-align: center;
+    }
+
+    .cta-title {
+        justify-content: center;
+    }
+
+    .icons-row {
+        justify-content: center;
+    }
+    
+    .bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .copyright {
+        justify-content: center;
+    }
+
+    .made-with {
+        justify-content: center;
+    }
+}
+
+/* Small phones */
+@media (max-width: 575.98px) {
+    .footer-main {
+        padding: 30px 0 20px;
+    }
+
+    .brand-logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-text h4 {
+        font-size: 1.25rem;
+    }
+
+    .brand-desc {
+        font-size: 0.85rem;
+    }
+
+    .contact-card {
+        padding: 11px 13px;
+    }
+
+    .contact-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .contact-details .value {
+        font-size: 0.82rem;
+    }
+
+    .footer-cta {
+        padding: 22px 18px;
+    }
+
+    .whatsapp-btn {
+        padding: 12px 18px;
+        font-size: 0.88rem;
+    }
+
+    .social-icon {
+        width: 38px;
+        height: 38px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .newsletter-form input {
+        padding: 8px 11px;
+        font-size: 0.8rem;
+    }
+
+    .newsletter-form button {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .bottom-links {
+        gap: 14px;
+    }
+}
+
+/* Print */
+@media print {
+    .premium-footer {
+        background: #fff !important;
+        color: #000 !important;
+    }
+    
+    .footer-wave,
+    .social-icons,
+    .newsletter-mini,
+    .whatsapp-btn {
+        display: none !important;
+    }
+}

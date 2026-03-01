@@ -1,0 +1,62 @@
+# robots.txt - بوابة خبرة 
+
+# السماح لجميع محركات البحث
+User-agent: *
+Allow: /
+
+# حظر الملفات الإدارية والحساسة
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /uploads/
+Disallow: /vendor/
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /change_admin_password.php
+Disallow: /generate_password_hash.php
+
+# السماح بالصفحات العامة
+Allow: /index.php
+Allow: /about.php
+Allow: /team.php
+Allow: /services.php
+Allow: /join.php
+Allow: /courses.php
+Allow: /course.php
+Allow: /faq.php
+
+# السماح بالأصول الثابتة
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.ico$
+
+# Sitemap
+Sitemap: http://localhost/expedu/public/sitemap.xml
+
+# معدل الزحف (Crawl-delay)
+Crawl-delay: 10
+
+# محركات بحث محددة
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+# حظر بعض البوتات المزعجة
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+
